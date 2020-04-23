@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "questionTitles": {
+      "bg": "Температура над 38C",
+      "en": "Body temperature above 38C"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 2,
+    "questionTitles": {
+      "bg": "Суха кашлица",
+      "en": "Dry cough"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 3,
+    "questionTitles": {
+      "bg": "Трудност при дишане или недостиг на въздух",
+      "en": "Difficulty breathing or shortness of breath"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 4,
+    "questionTitles": {
+      "bg": "Постоянна болка или напрежение в гърдите",
+      "en": "Persistent pain or pressure in the chest"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 5,
+    "questionTitles": {
+      "bg": "Посиняване на устните или лицето",
+      "en": "Bluish lips or face"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 6,
+    "questionTitles": {
+      "bg": "Гадене, повръщане и/или диария",
+      "en": "Nausea, vomiting and/or diarrhoea"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 7,
+    "questionTitles": {
+      "bg": "Тежко и постоянно виене на свят или замаяност",
+      "en": "Lightheadedness or Vertigo"
+    },
+    "questionType": "BOOLEAN"
+  }
+]

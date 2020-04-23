@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "questionTitles": {
+      "bg": "Question1_bg",
+      "en": "Question1_en"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 2,
+    "questionTitles": {
+      "bg": "Question2_bg"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 3,
+    "questionTitles": {
+      "bg": "Question3_bg"
+    },
+    "questionType": "BOOLEAN",
+    "enabled": false
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "timeSlot": {
+    "gte": "now-1000m",
+    "lt": "now"
+  },
+  "answerQuery": {
+    "and": [
+      {
+        "eq": {
+          "questionId": 1,
+          "answer": "True"
+        }
+      },
+      {
+        "or": [
+          {
+            "eq": {
+              "questionId": 2
+            }
+          },
+          {
+            "eq": {
+              "answer": "True"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "polygonPoints": [
+    {
+      "lat": 30,
+      "lon": 70
+    },
+    {
+      "lat": 30,
+      "lon": 80
+    },
+    {
+      "lat": 40,
+      "lon": 70
+    },
+    {
+      "lat": 40,
+      "lon": 80
+    }
+  ]
+}
