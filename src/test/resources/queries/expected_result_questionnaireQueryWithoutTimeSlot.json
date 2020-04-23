@@ -1,0 +1,174 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "geo_polygon": {
+            "geoPoint": {
+              "points": [
+                [
+                  70.0,
+                  30.0
+                ],
+                [
+                  80.0,
+                  30.0
+                ],
+                [
+                  70.0,
+                  40.0
+                ],
+                [
+                  80.0,
+                  40.0
+                ],
+                [
+                  70.0,
+                  30.0
+                ]
+              ]
+            },
+            "validation_method": "STRICT",
+            "ignore_unmapped": false,
+            "boost": 1.0
+          }
+        },
+        {
+          "bool": {
+            "must": [
+              {
+                "nested": {
+                  "query": {
+                    "bool": {
+                      "must": [
+                        {
+                          "term": {
+                            "answers.questionId": {
+                              "value": "1",
+                              "boost": 1.0
+                            }
+                          }
+                        },
+                        {
+                          "match": {
+                            "answers.answer": {
+                              "query": "True",
+                              "operator": "OR",
+                              "prefix_length": 0,
+                              "max_expansions": 50,
+                              "fuzzy_transpositions": true,
+                              "lenient": false,
+                              "zero_terms_query": "NONE",
+                              "auto_generate_synonyms_phrase_query": true,
+                              "boost": 1.0
+                            }
+                          }
+                        }
+                      ],
+                      "adjust_pure_negative": true,
+                      "boost": 1.0
+                    }
+                  },
+                  "path": "answers",
+                  "ignore_unmapped": false,
+                  "score_mode": "none",
+                  "boost": 1.0
+                }
+              },
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "nested": {
+                        "query": {
+                          "bool": {
+                            "must": [
+                              {
+                                "term": {
+                                  "answers.questionId": {
+                                    "value": "2",
+                                    "boost": 1.0
+                                  }
+                                }
+                              },
+                              {
+                                "match": {
+                                  "answers.answer": {
+                                    "query": "False",
+                                    "operator": "OR",
+                                    "prefix_length": 0,
+                                    "max_expansions": 50,
+                                    "fuzzy_transpositions": true,
+                                    "lenient": false,
+                                    "zero_terms_query": "NONE",
+                                    "auto_generate_synonyms_phrase_query": true,
+                                    "boost": 1.0
+                                  }
+                                }
+                              }
+                            ],
+                            "adjust_pure_negative": true,
+                            "boost": 1.0
+                          }
+                        },
+                        "path": "answers",
+                        "ignore_unmapped": false,
+                        "score_mode": "none",
+                        "boost": 1.0
+                      }
+                    },
+                    {
+                      "nested": {
+                        "query": {
+                          "bool": {
+                            "must": [
+                              {
+                                "term": {
+                                  "answers.questionId": {
+                                    "value": "3",
+                                    "boost": 1.0
+                                  }
+                                }
+                              },
+                              {
+                                "match": {
+                                  "answers.answer": {
+                                    "query": "True",
+                                    "operator": "OR",
+                                    "prefix_length": 0,
+                                    "max_expansions": 50,
+                                    "fuzzy_transpositions": true,
+                                    "lenient": false,
+                                    "zero_terms_query": "NONE",
+                                    "auto_generate_synonyms_phrase_query": true,
+                                    "boost": 1.0
+                                  }
+                                }
+                              }
+                            ],
+                            "adjust_pure_negative": true,
+                            "boost": 1.0
+                          }
+                        },
+                        "path": "answers",
+                        "ignore_unmapped": false,
+                        "score_mode": "none",
+                        "boost": 1.0
+                      }
+                    }
+                  ],
+                  "adjust_pure_negative": true,
+                  "boost": 1.0
+                }
+              }
+            ],
+            "adjust_pure_negative": true,
+            "boost": 1.0
+          }
+        }
+      ],
+      "adjust_pure_negative": true,
+      "boost": 1.0
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "timeSlot": {
+    "gte": "now-1000m",
+    "lt": "now"
+  },
+  "answerQuery": {
+    "and": [
+      {
+        "eq": {
+          "questionId": 1,
+          "answer": "True"
+        }
+      },
+      {
+        "or": [
+          {
+            "eq": {
+              "questionId": 2,
+              "answer": "False"
+            }
+          },
+          {
+            "eq": {
+              "questionId": 3,
+              "answer": "True"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

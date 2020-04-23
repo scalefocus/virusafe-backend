@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1
+    "questionTitles": {
+      "bg": "Question1_bg",
+      "en": "Question1_en"
+    }
+    "questionType": "BOOLEAN"
+  }
+]

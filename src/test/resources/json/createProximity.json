@@ -1,0 +1,13 @@
+{
+  "location": {
+    "lat": 55.75,
+    "lng": 43.21
+  },
+  "proximities": [
+    {
+      "uuid": "uuid1",
+      "distance": "1.5"
+    }
+  ],
+  "timestamp": 111222333
+}

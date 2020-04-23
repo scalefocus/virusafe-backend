@@ -1,0 +1,52 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "range": {
+            "serverTime": {
+              "from": "now-1000m",
+              "to": "now",
+              "include_lower": true,
+              "include_upper": false,
+              "boost": 1.0
+            }
+          }
+        },
+        {
+          "geo_polygon": {
+            "geoPoint": {
+              "points": [
+                [
+                  70.0,
+                  30.0
+                ],
+                [
+                  80.0,
+                  30.0
+                ],
+                [
+                  70.0,
+                  40.0
+                ],
+                [
+                  80.0,
+                  40.0
+                ],
+                [
+                  70.0,
+                  30.0
+                ]
+              ]
+            },
+            "validation_method": "STRICT",
+            "ignore_unmapped": false,
+            "boost": 1.0
+          }
+        }
+      ],
+      "adjust_pure_negative": true,
+      "boost": 1.0
+    }
+  }
+}

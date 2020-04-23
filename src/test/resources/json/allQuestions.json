@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "questionTitle": "Question1_bg",
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 2,
+    "questionTitle": "Question2_bg",
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 3,
+    "questionTitle": "Question3_bg",
+    "questionType": "BOOLEAN"
+  }
+]

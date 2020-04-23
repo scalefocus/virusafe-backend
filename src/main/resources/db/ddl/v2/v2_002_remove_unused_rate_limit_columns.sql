@@ -1,0 +1,13 @@
+ALTER TABLE `user_details`
+    DROP COLUMN `last_questionnaire_submit_time`,
+    DROP COLUMN `questionnaire_update_bucket_count`,
+    DROP COLUMN `last_position_update_time`,
+    DROP COLUMN `location_update_bucket_count`,
+    DROP COLUMN `last_proximity_update_time`,
+    DROP COLUMN `proximity_update_bucket_count`,
+    DROP COLUMN `last_pin_request_bucket_time`,
+    DROP COLUMN `pin_request_bucket_count`,
+    DROP COLUMN `last_personal_info_update_bucket_time`,
+    DROP COLUMN `personal_info_update_bucket_count`,
+    DROP COLUMN `last_push_token_update_bucket_time`,
+    DROP COLUMN `push_token_update_bucket_count`;

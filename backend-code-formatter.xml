@@ -1,0 +1,15 @@
+<code_scheme name="Default" version="173">
+  <JavaCodeStyleSettings>
+    <option name="GENERATE_FINAL_PARAMETERS" value="true" />
+    <option name="ANNOTATION_PARAMETER_WRAP" value="1" />
+    <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="999" />
+    <option name="NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND" value="999" />
+  </JavaCodeStyleSettings>
+  <codeStyleSettings language="JAVA">
+    <option name="RIGHT_MARGIN" value="120" />
+    <option name="CALL_PARAMETERS_WRAP" value="1" />
+    <option name="METHOD_PARAMETERS_WRAP" value="1" />
+    <option name="METHOD_CALL_CHAIN_WRAP" value="1" />
+    <option name="ASSERT_STATEMENT_WRAP" value="1" />
+  </codeStyleSettings>
+</code_scheme>

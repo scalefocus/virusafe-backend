@@ -1,0 +1,50 @@
+{
+  "timeSlot": {
+    "gt": "now-1000m",
+    "lte": "now"
+  },
+  "answerQuery": {
+    "and": [
+      {
+        "eq": {
+          "questionId": 1,
+          "answer": "True"
+        }
+      },
+      {
+        "or": [
+          {
+            "eq": {
+              "questionId": 2,
+              "answer": "False"
+            }
+          },
+          {
+            "eq": {
+              "questionId": 3,
+              "answer": "True"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "polygonPoints": [
+    {
+      "lat": 30,
+      "lon": 70
+    },
+    {
+      "lat": 30,
+      "lon": 80
+    },
+    {
+      "lat": 40,
+      "lon": 70
+    },
+    {
+      "lat": 40,
+      "lon": 80
+    }
+  ]
+}

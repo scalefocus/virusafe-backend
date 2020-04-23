@@ -1,0 +1,13 @@
+{
+  "timestamp": "111222333",
+  "location": {
+    "lat": 55.75,
+    "lng": 43.21
+  },
+  "answers": [
+    {
+      "questionId": "1",
+      "answer": "TRUE"
+    }
+  ]
+}
