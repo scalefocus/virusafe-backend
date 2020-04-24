@@ -5,29 +5,29 @@ ViruSafe application uses code from the following libraries:
 
 |GroupId:ArtifactId:Version|Scope|Type|License(s)|
 |---|---|---|---|
-|com.google.firebase:firebase-admin:6.12.2 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|com.h2database:h2:1.4.200 |test |jar |[MPL 2.0](#mpl-2-0) or [EPL 1.0](#epl-1-0)|
-|io.github.hakky54:logcaptor:1.1.0 |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|io.jsonwebtoken:jjwt-api:0.11.1 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|io.jsonwebtoken:jjwt-impl:0.11.1 |runtime |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|io.jsonwebtoken:jjwt-jackson:0.11.1 |runtime |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|io.springfox:springfox-bean-validators:2.9.2 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|io.springfox:springfox-swagger-ui:2.9.2 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|io.springfox:springfox-swagger2:2.9.2 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|net.logstash.logback:logstash-logback-encoder:6.3 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0) [The MIT License](#the-mit-license)|
-|org.mapstruct:mapstruct:1.3.1.Final |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.mariadb.jdbc:mariadb-java-client:2.6.0 |compile |jar |[LGPL-2.1](#lgpl-2-1)|
-|org.mock-server:mockserver-junit-jupiter:5.10.0 |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
+|com.google.firebase:firebase-admin:6.12.2 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|com.h2database:h2:1.4.200 |test |jar |[MPL 2.0](#mpl-20) or [EPL 1.0](#epl-10)|
+|io.github.hakky54:logcaptor:1.1.0 |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|io.jsonwebtoken:jjwt-api:0.11.1 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|io.jsonwebtoken:jjwt-impl:0.11.1 |runtime |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|io.jsonwebtoken:jjwt-jackson:0.11.1 |runtime |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|io.springfox:springfox-bean-validators:2.9.2 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|io.springfox:springfox-swagger-ui:2.9.2 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|io.springfox:springfox-swagger2:2.9.2 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|net.logstash.logback:logstash-logback-encoder:6.3 |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20) [The MIT License](#the-mit-license)|
+|org.mapstruct:mapstruct:1.3.1.Final |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.mariadb.jdbc:mariadb-java-client:2.6.0 |compile |jar |[LGPL-2.1](#lgpl-21)|
+|org.mock-server:mockserver-junit-jupiter:5.10.0 |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
 |org.projectlombok:lombok:1.18.12 |compile |jar |[The MIT License](#the-mit-license)|
-|org.springframework.boot:spring-boot-starter-actuator:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.springframework.boot:spring-boot-starter-cache:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.springframework.boot:spring-boot-starter-data-elasticsearch:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.springframework.boot:spring-boot-starter-data-jpa:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.springframework.boot:spring-boot-starter-security:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.springframework.boot:spring-boot-starter-test:2.2.5.RELEASE |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.springframework.boot:spring-boot-starter-web:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.springframework.kafka:spring-kafka:2.3.6.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
-|org.springframework.security:spring-security-test:5.2.2.RELEASE |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2-0)|
+|org.springframework.boot:spring-boot-starter-actuator:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.springframework.boot:spring-boot-starter-cache:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.springframework.boot:spring-boot-starter-data-elasticsearch:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.springframework.boot:spring-boot-starter-data-jpa:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.springframework.boot:spring-boot-starter-security:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.springframework.boot:spring-boot-starter-test:2.2.5.RELEASE |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.springframework.boot:spring-boot-starter-web:2.2.5.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.springframework.kafka:spring-kafka:2.3.6.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
+|org.springframework.security:spring-security-test:5.2.2.RELEASE |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-20)|
 
  ### The Apache Software License, Version 2.0
  <pre>                                 Apache License
