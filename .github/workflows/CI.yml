@@ -10,15 +10,23 @@ jobs:
     - name: Checkout project
       uses: actions/checkout@v2
     
-    - name: Setup java
+    - name: Cache maven dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-  
+  
+    - name: Setup java 11
       uses: actions/setup-java@v1
       with:
-        java-version: '11' # The JDK version to make available on the path.
+        java-version: 11 # The JDK version to make available on the path.
         java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
         architecture: x64 # (x64 or x86) - defaults to x64
 
     - name: Static code analysis
-      run: bash ./mvnw clean validate
+      run: mvn clean validate
 
     - name: Build & Test
-      run: bash ./mvnw clean install
+      run: mvn clean install
