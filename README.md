@@ -25,6 +25,7 @@ Overview:
     - [Validate that everything is up and running localhost:8080/actuator/health](#validate-that-everything-is-up-and-running-localhost8080actuatorhealth)
   - [REST API authentication workflow documentation](#rest-api-authentication-workflow-documentation)
   - [REST API Swagger documentation](#rest-api-swagger-documentation)
+  - [Custom push notifications REST API documentation](#custom-push-notifications-rest-api-documentation)
   - [Contributing](#contributing)
   - [Security](#security)
   - [Contacts](#contacts)
@@ -164,6 +165,10 @@ We set a target of 80% code coverage, it is enforced by maven build using jacoco
 ## REST API Swagger documentation
 - you may use `swagger.yaml` in base directory
 - the actual version should be accessible on running application at [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+## Custom push notifications REST API documentation
+
+Read our [Push notifications documentation](PUSH-NOTIFICATIONS.md) to learn about the different options for targeting groups of users and sending them custom push notifications.
 
 ## Contributing
 
