@@ -29,7 +29,7 @@ ViruSafe application uses code from the following libraries:
 |org.springframework.kafka:spring-kafka:2.3.6.RELEASE |compile |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2)|
 |org.springframework.security:spring-security-test:5.2.2.RELEASE |test |jar |[The Apache Software License, Version 2.0](#the-apache-software-license-version-2)|
 
- ### [The Apache Software License, Version 2.0](#the-apache-software-license-version-2)
+ ### The Apache Software License, Version 2.0
  <pre>                                 Apache License
                             Version 2.0, January 2004
                          http://www.apache.org/licenses/
