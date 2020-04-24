@@ -25,8 +25,11 @@ Overview:
     - [Validate that everything is up and running localhost:8080/actuator/health](#validate-that-everything-is-up-and-running-localhost8080actuatorhealth)
   - [REST API authentication workflow documentation](#rest-api-authentication-workflow-documentation)
   - [REST API Swagger documentation](#rest-api-swagger-documentation)
+  - [Custom push notifications REST API documentation](#custom-push-notifications-rest-api-documentation)
   - [Contributing](#contributing)
   - [Security](#security)
+  - [Contacts](#contacts)
+  - [License](#license)
 
 ## Requirements
 
@@ -163,6 +166,10 @@ We set a target of 80% code coverage, it is enforced by maven build using jacoco
 - you may use `swagger.yaml` in base directory
 - the actual version should be accessible on running application at [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
+## Custom push notifications REST API documentation
+
+Read our [Push notifications documentation](PUSH-NOTIFICATIONS.md) to learn about the different options for targeting groups of users and sending them custom push notifications.
+
 ## Contributing
 
 Read our [Contributing Guide](CONTRIBUTING.md) to learn about reporting issues, contributing code, and more ways to contribute.
@@ -170,3 +177,23 @@ Read our [Contributing Guide](CONTRIBUTING.md) to learn about reporting issues, 
 ## Security
 
 If you happen to find a security vulnerability, we would appreciate you letting us know by contacting us on - virusafe.support (at) scalefocus.com and allowing us to respond before disclosing the issue publicly.
+
+## Contacts
+
+Feel free to checkout our [Slack Team](https://join.slack.com/t/virusafe/shared_invite/zt-dthph60w-KGyk_s6rjoGa6WjR7~tCAg) and join the discussion there ✌️
+
+## License
+
+Copyright 2020 SCALE FOCUS AD
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
