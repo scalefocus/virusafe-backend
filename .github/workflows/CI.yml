@@ -1,16 +1,22 @@
 name: CI
 
 on:
-  push:
-    branches: [ master, development ]
-  pull_request:
+  push:[push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout project
+      uses: actions/checkout@v2
+    
+    - name: Setup java
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11' # The JDK version to make available on the path.
+        java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
+        architecture: x64 # (x64 or x86) - defaults to x64
 
     - name: Static code analysis
       run: bash ./mvnw clean validate
