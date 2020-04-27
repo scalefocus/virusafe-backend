@@ -27,6 +27,9 @@ public class MdcFilter extends OncePerRequestFilter {
             MDC.put("CorrelationId", getCorrelationId());
             // Set the UserPhoneNumber field if we've set a current user principal.
             final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String userAgent = httpServletRequest.getHeader("User-Agent");
+            MDC.put("UserAgent", userAgent);
+
             if (Objects.nonNull(authentication)) {
                 final Object principal = authentication.getPrincipal();
                 if (principal instanceof UserPrincipal) {
@@ -38,7 +41,7 @@ public class MdcFilter extends OncePerRequestFilter {
         } finally {
             MDC.remove("CorrelationId");
             MDC.remove("UserId");
-
+            MDC.remove("UserAgent");
         }
     }
 

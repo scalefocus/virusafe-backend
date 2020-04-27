@@ -54,7 +54,8 @@ class MdcFilterTest {
         // Verify MDC is cleared
         assertAll(
                 () -> assertNull(MDC.get("CorrelationID")),
-                () -> assertNull(MDC.get("UserID"))
+                () -> assertNull(MDC.get("UserID")),
+                () -> assertNull(MDC.get("UserAgent"))
         );
     }
 
@@ -78,7 +79,8 @@ class MdcFilterTest {
         // Verify MDC is cleared
         assertAll(
                 () -> assertNull(MDC.get("CorrelationID")),
-                () -> assertNull(MDC.get("UserID"))
+                () -> assertNull(MDC.get("UserID")),
+                () -> assertNull(MDC.get("UserAgent"))
         );
     }
 
@@ -99,7 +101,8 @@ class MdcFilterTest {
         // Verify MDC is cleared
         assertAll(
                 () -> assertNull(MDC.get("CorrelationID")),
-                () -> assertNull(MDC.get("UserID"))
+                () -> assertNull(MDC.get("UserID")),
+                () -> assertNull(MDC.get("UserAgent"))
         );
     }
 
@@ -118,7 +121,8 @@ class MdcFilterTest {
         // Verify MDC is cleared
         assertAll(
                 () -> assertNull(MDC.get("CorrelationID")),
-                () -> assertNull(MDC.get("UserID"))
+                () -> assertNull(MDC.get("UserID")),
+                () -> assertNull(MDC.get("UserAgent"))
         );
     }
 }
