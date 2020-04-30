@@ -5,6 +5,7 @@ import io.virusafe.domain.command.PersonalInformationUpdateCommand;
 import io.virusafe.domain.entity.RegistrationPin;
 import io.virusafe.domain.entity.UserDetails;
 import io.virusafe.repository.UserDetailsRepositoryFacade;
+import io.virusafe.service.audit.PersonalInformationConsentAuditService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -46,6 +47,8 @@ class UserDetailsServiceImplTest {
     private final LocalDateTime timeNow = LocalDateTime.now(systemClock);
     @Mock
     private UserDetailsRepositoryFacade userDetailsRepositoryFacade;
+    @Mock
+    private PersonalInformationConsentAuditService personalInformationConsentAuditService;
 
     private UserDetailsServiceImpl userDetailsService;
 
@@ -54,7 +57,8 @@ class UserDetailsServiceImplTest {
 
     @BeforeEach
     public void setUp() {
-        this.userDetailsService = new UserDetailsServiceImpl(userDetailsRepositoryFacade);
+        this.userDetailsService = new UserDetailsServiceImpl(userDetailsRepositoryFacade,
+                personalInformationConsentAuditService);
     }
 
     @Test
