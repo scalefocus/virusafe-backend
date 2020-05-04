@@ -1,8 +1,10 @@
 package io.virusafe.service.userdetails;
 
 import io.virusafe.domain.command.PersonalInformationUpdateCommand;
+import io.virusafe.domain.entity.PersonalInformationConsentAction;
 import io.virusafe.domain.entity.UserDetails;
 import io.virusafe.repository.UserDetailsRepositoryFacade;
+import io.virusafe.service.audit.PersonalInformationConsentAuditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,15 +24,19 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private static final String MISSING_USER_TEMPLATE = "User with guid {0} is not registered!";
 
     private final UserDetailsRepositoryFacade userDetailsRepositoryFacade;
+    private final PersonalInformationConsentAuditService personalInformationConsentAuditService;
 
     /**
      * Construct a new UserDetailsService, using the autowired beans.
      *
      * @param userDetailsRepositoryFacade
+     * @param personalInformationConsentAuditService the PersonalInformationConsentAuditService to use for audit trail
      */
     @Autowired
-    public UserDetailsServiceImpl(final UserDetailsRepositoryFacade userDetailsRepositoryFacade) {
+    public UserDetailsServiceImpl(final UserDetailsRepositoryFacade userDetailsRepositoryFacade,
+                                  final PersonalInformationConsentAuditService personalInformationConsentAuditService) {
         this.userDetailsRepositoryFacade = userDetailsRepositoryFacade;
+        this.personalInformationConsentAuditService = personalInformationConsentAuditService;
     }
 
     @Override
@@ -69,6 +75,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         userDetails.setPreExistingConditions(personalInformationUpdateCommand.getPreExistingConditions());
 
         save(userDetails);
+        // Personal information is required here so we've also received consent.
+        personalInformationConsentAuditService.addAuditTrailEntry(userGuid, PersonalInformationConsentAction.GRANTED);
     }
 
     @Override
@@ -107,10 +115,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                         .format(MISSING_USER_TEMPLATE, userGuid)));
         removeUserDetailsPersonalInfoFields(userDetails);
         save(userDetails);
+        // Deleting personal information so we've revoked the consent
+        personalInformationConsentAuditService.addAuditTrailEntry(userGuid, PersonalInformationConsentAction.REVOKED);
     }
 
     private void removeUserDetailsPersonalInfoFields(final UserDetails userDetails) {
         userDetails.setIdentificationNumber(null);
+        userDetails.setIdentificationNumberPlain(null);
         userDetails.setAge(null);
         userDetails.setGender(null);
         userDetails.setPreExistingConditions(null);
