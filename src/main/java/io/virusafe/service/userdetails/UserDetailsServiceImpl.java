@@ -121,6 +121,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private void removeUserDetailsPersonalInfoFields(final UserDetails userDetails) {
         userDetails.setIdentificationNumber(null);
+        userDetails.setIdentificationNumberPlain(null);
         userDetails.setAge(null);
         userDetails.setGender(null);
         userDetails.setPreExistingConditions(null);
