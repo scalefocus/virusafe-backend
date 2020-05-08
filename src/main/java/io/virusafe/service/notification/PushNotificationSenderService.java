@@ -12,7 +12,8 @@ public interface PushNotificationSenderService {
      * @return
      */
     void sendCustomPushNotifications(final QuestionnaireQuery questionnaireQuery, final String title,
-                                     final String message);
+                                     final String message, final boolean reverseQueryResults);
+
     /**
      * sends custom push notifications for concrete users
      *

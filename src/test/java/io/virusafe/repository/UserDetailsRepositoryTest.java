@@ -1,23 +1,46 @@
 package io.virusafe.repository;
 
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Profile;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.junit.jupiter.api.Test;
 
-@ExtendWith(SpringExtension.class)
-@DataJpaTest
-@Profile("test")
+import java.util.Collections;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.anySet;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
+
 public class UserDetailsRepositoryTest {
-
-/*    @Autowired
-    private UserDetailsRepository userDetailsRepository;
+    private final static String PUSH_TOKEN_1 = "token1";
+    private final static String PUSH_TOKEN_2 = "token2";
+    private static final String USER_GUID = "userGUID";
 
     @Test
-    public void findAllPushTokensByUserGuidTest() {
-        Set<String> userGuids = new HashSet<>();
-        userGuids.add("a72c7397-733c-11ea-bbcc-f60659fdf23c");
-        Set<String> allPushTokensByUserGuid = userDetailsRepository.findAllPushTokensByUserGuid(userGuids);
-        System.out.println(allPushTokensByUserGuid);
-    }*/
+    void findAllPushTokensByUserGuids_AllTokens() {
+        UserDetailsRepository repository = spy(UserDetailsRepository.class);
+        when(repository.findAllPushTokens()).thenReturn(Set.of(PUSH_TOKEN_1, PUSH_TOKEN_2));
+        Set<String> allTokens = repository.findAllPushTokensByUserGuids(Collections.emptySet(), true);
+        assertNotNull(allTokens);
+        assertEquals(2, allTokens.size());
+    }
+
+    @Test
+    void findAllPushTokensByUserGuids_In() {
+        UserDetailsRepository repository = spy(UserDetailsRepository.class);
+        when(repository.findAllPushTokensByUserGuidIn(anySet())).thenReturn(Set.of(PUSH_TOKEN_1));
+        Set<String> allTokens = repository.findAllPushTokensByUserGuids(Set.of(USER_GUID), false);
+        assertNotNull(allTokens);
+        assertEquals(1, allTokens.size());
+    }
+
+    @Test
+    void findAllPushTokensByUserGuids_NotIn() {
+        UserDetailsRepository repository = spy(UserDetailsRepository.class);
+        when(repository.findAllPushTokensByUserGuidNotIn(anySet())).thenReturn(Set.of(PUSH_TOKEN_2));
+        Set<String> allTokens = repository.findAllPushTokensByUserGuids(Set.of(USER_GUID), true);
+        assertNotNull(allTokens);
+        assertEquals(1, allTokens.size());
+    }
+
 }

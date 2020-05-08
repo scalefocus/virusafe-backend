@@ -11,6 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,6 +29,7 @@ class NoEncryptionUserDetailsRepositoryFacadeTest {
     private static final String PHONE_NUMBER = "PHONE_NUMBER";
     private static final String PIN = "PIN";
     private static final String REFRESH_TOKEN = "REFRESH_TOKEN";
+    private static final String PUSH_TOKEN = "PUSH_TOKEN";
     @Mock
     private UserDetailsRepository userDetailsRepository;
 
@@ -128,5 +130,19 @@ class NoEncryptionUserDetailsRepositoryFacadeTest {
                 .build();
         repositoryFacade.save(userDetails);
         verify(userDetailsRepository, times(1)).save(expectedUserDetails);
+    }
+
+    @Test
+    public void testFindAllPushTokensByUserGuid() {
+        when(userDetailsRepository.findAllPushTokensByUserGuids(Set.of(USER_GUID), true)).thenReturn(Set.of(PUSH_TOKEN));
+        repositoryFacade.findAllPushTokensByUserGuid(Set.of(USER_GUID), true);
+        verify(userDetailsRepository, times(1)).findAllPushTokensByUserGuids(Set.of(USER_GUID), true);
+    }
+
+    @Test
+    public void testFindAllPushTokensByUserGuidReversed() {
+        when(userDetailsRepository.findAllPushTokensByUserGuids(Set.of(USER_GUID), false)).thenReturn(Set.of(PUSH_TOKEN));
+        repositoryFacade.findAllPushTokensByUserGuid(Set.of(USER_GUID), false);
+        verify(userDetailsRepository, times(1)).findAllPushTokensByUserGuids(Set.of(USER_GUID), false);
     }
 }

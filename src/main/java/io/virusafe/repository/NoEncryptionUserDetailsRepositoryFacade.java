@@ -49,10 +49,7 @@ public class NoEncryptionUserDetailsRepositoryFacade implements UserDetailsRepos
     }
 
     private Optional<UserDetails> decodeDetails(final Optional<UserDetails> userDetailsOpt) {
-        if (userDetailsOpt.isPresent()) {
-            return decode(userDetailsOpt.get());
-        }
-        return userDetailsOpt;
+        return userDetailsOpt.flatMap(this::decode);
     }
 
     @Override
@@ -71,7 +68,7 @@ public class NoEncryptionUserDetailsRepositoryFacade implements UserDetailsRepos
     }
 
     @Override
-    public Set<String> findAllPushTokensByUserGuid(final Set<String> userGuids) {
-        return userDetailsRepository.findAllPushTokensByUserGuid(userGuids);
+    public Set<String> findAllPushTokensByUserGuid(final Set<String> userGuids, final boolean reverse) {
+        return userDetailsRepository.findAllPushTokensByUserGuids(userGuids, reverse);
     }
 }
