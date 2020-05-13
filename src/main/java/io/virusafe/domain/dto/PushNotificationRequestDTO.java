@@ -24,4 +24,6 @@ public class PushNotificationRequestDTO {
     @NotNull
     @Size(max = 200)
     private String message;
+
+    private boolean reverseQueryResults;
 }

@@ -17,7 +17,7 @@ public class CustomPushNotificationDTO {
     private Set<String> userGuids;
 
     @NotNull
-    @Size(max = 15)
+    @Size(max = 30)
     private String title;
 
     @NotNull

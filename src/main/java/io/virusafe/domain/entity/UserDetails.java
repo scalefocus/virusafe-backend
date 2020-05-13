@@ -121,7 +121,7 @@ public class UserDetails {
         if (Objects.nonNull(registrationPins)) {
             registrationPins.forEach(this::addRegistrationPin);
         }
-        this.createdDate = System.nanoTime();
+        this.createdDate = System.currentTimeMillis();
 
         this.tokenSecret = tokenSecret;
         this.refreshToken = refreshToken;

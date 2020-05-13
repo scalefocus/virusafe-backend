@@ -3,6 +3,7 @@ package io.virusafe.exception.handler;
 import io.jsonwebtoken.JwtException;
 import io.virusafe.exception.EncryptionProviderException;
 import io.virusafe.exception.InvalidPersonalInformationException;
+import io.virusafe.exception.PushNotificationException;
 import io.virusafe.exception.QueryExecuteException;
 import io.virusafe.exception.QueryParseException;
 import io.virusafe.exception.RateLimitTimeoutException;
@@ -270,6 +271,21 @@ public class GlobalExceptionHandler {
         ErrorDTO sanitizedErrorDTOO = ErrorDTO.builder().message(INVALID_QUERY_REQUEST_MESSAGE).build();
         logException(queryParseException);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(sanitizedErrorDTOO);
+    }
+
+    /**
+     * Reroute all Push Notification-related exceptions to HTTP 500.
+     *
+     * @param pushNotificationException the caught exception
+     * @return ResponseEntity of HTTP Status 500, containing error details
+     */
+    @ExceptionHandler({PushNotificationException.class})
+    public final ResponseEntity<ErrorDTO> handleJwtException(
+            final PushNotificationException pushNotificationException) {
+        logException(pushNotificationException);
+        ErrorDTO errorDTO = ErrorDTO.fromExceptionBuilder().exception(pushNotificationException).build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(errorDTO);
     }
 
     private List<String> filterExceptionStacktrace(final Exception exception) {

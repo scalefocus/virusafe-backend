@@ -55,5 +55,5 @@ public interface UserDetailsRepositoryFacade {
      *
      * @param userGuids userGuids to search for
      */
-    Set<String> findAllPushTokensByUserGuid(Set<String> userGuids);
+    Set<String> findAllPushTokensByUserGuid(Set<String> userGuids, final boolean reverse);
 }

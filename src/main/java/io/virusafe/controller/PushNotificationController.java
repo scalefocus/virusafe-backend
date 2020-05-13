@@ -53,7 +53,7 @@ public class PushNotificationController {
 
         pushNotificationService
                 .sendCustomPushNotifications(questionnaireQuery, pushNotificationRequestDTO.getMessage(),
-                        pushNotificationRequestDTO.getTitle());
+                        pushNotificationRequestDTO.getTitle(), pushNotificationRequestDTO.isReverseQueryResults());
     }
 
     /**

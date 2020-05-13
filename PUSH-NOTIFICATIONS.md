@@ -75,6 +75,9 @@ Overview:
       - answerQuery may include an operation - `and`/`or` with multiple subOperations. Along with describing the different criteria arguments, there is additional minMatch field which points the number of correct conditions that should be met.
       - polygonPoints includes a list of `lat`(latitude) and `lon`(longitude).
       
+      Optional parameters:
+      - reverseQueryResults boolean flag that add possibility to invert results from `questionnaireQuery`
+       
       Having these criteria set, there is a Elasticsearch query that is build and that returns a set of userGuids. Based on these userGuids there is additional search in the SQL database, where the push tokens are stored against the userGuids. These push tokens are used by Firebase when sending notifications.
 1. POST endpoint - `/admin/pushNotification/user`
     - input: RequstBody - CustomPushNotificationDTO

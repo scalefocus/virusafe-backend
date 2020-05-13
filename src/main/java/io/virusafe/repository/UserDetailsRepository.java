@@ -2,6 +2,7 @@ package io.virusafe.repository;
 
 import io.virusafe.domain.entity.UserDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,13 @@ import java.util.Optional;
 import java.util.Set;
 
 @Repository
-public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> {
+public interface UserDetailsRepository extends JpaRepository<UserDetails, Long>, JpaSpecificationExecutor<UserDetails> {
+
+    String USER_GUIDS = "userGuids";
+    String GRANTED_CHECK = " and 'GRANTED' = (select pica.action from personal_information_consent_audit pica " +
+            "                   where pica.user_guid=ud.user_guid " +
+            "                   ORDER BY pica.changed_on DESC " +
+            "                       LIMIT 1)";
 
     /**
      * Find UserDetails by user GUID, returning empty Optional if not found.
@@ -59,7 +66,40 @@ public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> 
      * Find push tokens by userGuids.
      *
      * @param userGuids userGuids to search for
+     * @param notIn     if true it will invert logic
      */
-    @Query("SELECT ud.pushToken FROM UserDetails ud WHERE ud.userGuid IN (:userGuids)")
-    Set<String> findAllPushTokensByUserGuid(@Param("userGuids") Set<String> userGuids);
+    default Set<String> findAllPushTokensByUserGuids(final Set<String> userGuids, final boolean notIn) {
+        if (!notIn) {
+            return findAllPushTokensByUserGuidIn(userGuids);
+        }
+        if (!userGuids.isEmpty()) {
+            return findAllPushTokensByUserGuidNotIn(userGuids);
+        }
+        return findAllPushTokens();
+    }
+
+    /**
+     * Find push tokens by userGuids.
+     *
+     * @param userGuids userGuids to search for
+     */
+    @Query(value = "select ud.push_token from user_details ud where ud.push_token is not null " +
+            " and ud.user_guid in (:userGuids) " + GRANTED_CHECK, nativeQuery = true)
+    Set<String> findAllPushTokensByUserGuidIn(@Param(USER_GUIDS) Set<String> userGuids);
+
+    /**
+     * Find reversed results for push tokens by userGuids.
+     *
+     * @param userGuids userGuids to search for
+     */
+    @Query(value = "select ud.push_token from user_details ud where ud.push_token is not null " +
+            " and ud.user_guid not in (:userGuids) " + GRANTED_CHECK, nativeQuery = true)
+    Set<String> findAllPushTokensByUserGuidNotIn(@Param(USER_GUIDS) Set<String> userGuids);
+
+    /**
+     * Find all push tokens.
+     */
+    @Query(value = "select ud.push_token from user_details ud where ud.push_token is not null " +
+            GRANTED_CHECK, nativeQuery = true)
+    Set<String> findAllPushTokens();
 }

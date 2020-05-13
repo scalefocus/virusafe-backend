@@ -91,5 +91,5 @@ public interface UserDetailsService {
      *
      * @return
      */
-    Set<String> findPushTokensForUserGuids(final Set<String> userGuids);
+    Set<String> findPushTokensForUserGuids(final Set<String> userGuids, final boolean reverseQueryResults);
 }

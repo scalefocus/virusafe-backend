@@ -2,6 +2,7 @@ package io.virusafe.repository;
 
 import io.virusafe.domain.entity.UserDetails;
 import io.virusafe.security.encryption.SymmetricEncryptionProvider;
+import io.virusafe.security.encryption.SymmetricEncryptionProviderImpl;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,9 @@ public class EncryptionUserDetailsRepositoryFacade implements UserDetailsReposit
     private final SymmetricEncryptionProvider symmetricEncryptionProvider;
     private final UserDetailsRepository userDetailsRepository;
     private final String identificationNumberIVVector;
+
+    private final SymmetricEncryptionProvider backupProvider = new SymmetricEncryptionProviderImpl(
+            "encryption.symmetric.key", "SHA-256", "AES/CBC/PKCS5Padding", "AES");
 
     /**
      * Construct a new EncryptionUserDetailsRepositoryFacade, using the provided SymmetricEncryptionProvider to
@@ -65,7 +69,12 @@ public class EncryptionUserDetailsRepositoryFacade implements UserDetailsReposit
                 return decode(userDetails, symmetricEncryptionProvider);
             } catch (Exception e) {
                 log.error("Cannot decode data for user {}", userDetails.getUserGuid());
-                userDetails.setIdentificationNumberPlain(null);
+                try {
+                    return decode(userDetails, backupProvider);
+                } catch (Exception ex) {
+                    log.error("Cannot decode data for user with backup key {}", userDetails.getUserGuid());
+                    userDetails.setIdentificationNumberPlain(null);
+                }
             }
         }
         return userDetailsOpt;
@@ -100,7 +109,7 @@ public class EncryptionUserDetailsRepositoryFacade implements UserDetailsReposit
     }
 
     @Override
-    public Set<String> findAllPushTokensByUserGuid(final Set<String> userGuids) {
-        return userDetailsRepository.findAllPushTokensByUserGuid(userGuids);
+    public Set<String> findAllPushTokensByUserGuid(final Set<String> userGuids, final boolean reverse) {
+        return userDetailsRepository.findAllPushTokensByUserGuids(userGuids, reverse);
     }
 }

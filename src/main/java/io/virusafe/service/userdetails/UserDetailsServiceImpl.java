@@ -128,8 +128,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public Set<String> findPushTokensForUserGuids(final Set<String> userGuids) {
-        Set<String> guids = userDetailsRepositoryFacade.findAllPushTokensByUserGuid(userGuids);
+    public Set<String> findPushTokensForUserGuids(final Set<String> userGuids, final boolean reverse) {
+        Set<String> guids = userDetailsRepositoryFacade.findAllPushTokensByUserGuid(userGuids, reverse);
         return guids.stream().filter(Predicate.not(Objects::isNull))
                 .filter(Predicate.not(String::isEmpty)).collect(Collectors.toSet());
     }
