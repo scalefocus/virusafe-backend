@@ -29,7 +29,8 @@
       "bg": "Постоянна болка или напрежение в гърдите",
       "en": "Persistent pain or pressure in the chest"
     },
-    "questionType": "BOOLEAN"
+    "questionType": "BOOLEAN",
+    "enabled": false
   },
   {
     "id": 5,
@@ -37,7 +38,8 @@
       "bg": "Посиняване на устните или лицето",
       "en": "Bluish lips or face"
     },
-    "questionType": "BOOLEAN"
+    "questionType": "BOOLEAN",
+    "enabled": false
   },
   {
     "id": 6,
@@ -45,13 +47,47 @@
       "bg": "Гадене, повръщане и/или диария",
       "en": "Nausea, vomiting and/or diarrhoea"
     },
-    "questionType": "BOOLEAN"
+    "questionType": "BOOLEAN",
+    "enabled": false
   },
   {
     "id": 7,
     "questionTitles": {
       "bg": "Тежко и постоянно виене на свят или замаяност",
       "en": "Lightheadedness or Vertigo"
+    },
+    "questionType": "BOOLEAN",
+    "enabled": false
+  },
+  {
+    "id": 8,
+    "questionTitles": {
+      "bg": "Запушен нос/Хрема",
+      "en": "Nasal congestion/Runny nose"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 9,
+    "questionTitles": {
+      "bg": "Мускулни болки",
+      "en": "Muscle pain"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 10,
+    "questionTitles": {
+      "bg": "Умора/Отпадналост",
+      "en": "Fatigue/Weakness"
+    },
+    "questionType": "BOOLEAN"
+  },
+  {
+    "id": 11,
+    "questionTitles": {
+      "bg": "Възпалено гърло",
+      "en": "Sore throat"
     },
     "questionType": "BOOLEAN"
   }
