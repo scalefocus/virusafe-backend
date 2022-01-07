@@ -25,7 +25,7 @@
         <logback-encoder.version>6.3</logback-encoder.version>
         <firebase.version>6.12.2</firebase.version>
         <jacoco.plugin.version>0.8.5</jacoco.plugin.version>
-        <h2.version>1.4.200</h2.version>
+        <h2.version>2.0.206</h2.version>
         <mockserver.version>5.10.0</mockserver.version>
         <checkstyle.version>3.1.1</checkstyle.version>
         <spotbugs.version>4.0.0</spotbugs.version>
